@@ -1,29 +1,32 @@
-import { useState, useEffect } from 'react';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Navbar from "./components/Navbar";
+import Register from "./pages/Register";
+import AdminDashboard from "./pages/AdminDashboard";
 
-function App() {
-  const [message, setMessage] = useState('');
-  const [error, setError] = useState(null);
 
-  useEffect(() => {
-    fetch('http://127.0.0.1:5000/api/message')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => setMessage(data.message))
-      .catch(error => setError(error.toString()));
-  }, []);
-
+const App = () => {
   return (
-    <>
-      <h1>Vite + React</h1>
-      <p>
-        {error ? `Error: ${error}` : (message || 'Loading message from backend...')}
-      </p>
-    </>
-  )
-}
+    <Router>
+      <div className="min-h-screen flex flex-col bg-gray-50">
+        <Navbar />
+        <main className="grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} /> 
+            {/* {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+            <Route path="/admindashboard" element={<AdminDashboard />} />
+            {/* <Route path="/exam" element={<ExamPage />} /> */}  
+          </Routes>
+        </main>
+        {/* <Footer /> */}
+      </div>
+    </Router>
+  );
+};
 
-export default App
+export default App;
+
