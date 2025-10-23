@@ -15,14 +15,14 @@ To run the backend:
     pip install -r requirements.txt
     ```
 3.  Run the application:
-    ```bash
+    `bash
     python app.py
-    ```
-The backend will be running at `http://127.0.0.1:5000`.
+    `
+    The backend will be running at `http://127.0.0.1:5000`.
 
 ## Frontend
 
-To run the frontend:
+To run the frontend:-
 
 1.  Navigate to the `frontend` directory:
     ```bash
@@ -33,7 +33,7 @@ To run the frontend:
     npm install
     ```
 3.  Run the application:
-    ```bash
+    `bash
     npm run dev
-    ```
-The frontend will be running at `http://localhost:5173`.
+    `
+    The frontend will be running at `http://localhost:5173`.
